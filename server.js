@@ -15,8 +15,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-        user: 'your-email@gmail.com', // replace with your email
-        pass: 'your-password' // replace with your email password or app password
+        user: 'suggyxyz@gmail.com', // replace with your email
+        pass: 'sftty777' // replace with your email password or app password
     }
 });
 
@@ -32,6 +32,7 @@ app.post('/send-email', (req, res) => {
 
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
+            console.log(error.message)
             return res.status(500).send({ success: false, message: 'Failed to send email', error });
         }
         res.send({ success: true, message: 'Email sent successfully', info });
